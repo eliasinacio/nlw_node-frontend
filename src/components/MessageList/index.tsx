@@ -25,23 +25,23 @@ export function MessageList() {
   }, [])
 
   return (
-    <div className="messageList">
-      <img className="logo" src={Logo} alt="doWhile Logo" />
+    <div className='messageList'>
+      <img className='logo' src={Logo} alt='doWhile Logo' />
 
-      <ul className="messagesContainer">
+      <ul className='messagesContainer'>
         {
           messages.map( (message, index) => {
             return (
-              <li key={message.id} className="message" id={"message-"+index}>
+              <li key={message.id} className='message' id={'message-'+index}>
                 <span>{message.text}</span>
-                <div className="author">
-                  <div className="authorIcon">
+                <div className='author'>
+                  <div className='authorIcon'>
                     <img src={message.user.avatar_url} alt={message.user.name} />
                   </div>
-                  <span className="authorName">{message.user.name}</span>
+                  <span className='authorName'>{message.user.name}</span>
                 </div>
               </li>
-            ) as ReactNode
+            )
           })
         }
       </ul>

@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from "react"
-import { api } from "../services/api"
+import { createContext, ReactNode, useEffect, useState } from 'react'
+import { api } from '../services/api'
 
 type AuthProvider = {
   children: ReactNode
@@ -25,6 +25,7 @@ type User = {
 type AuthContextData = {
   user: User | null;
   signInUrl: string;
+  signOut: () => void;
 }
 
 export const AuthContext = createContext({} as AuthContextData)
@@ -45,6 +46,23 @@ export function AuthProvider(props: AuthProvider) {
     setUser(user)
   }
 
+  function signOut() {
+    setUser(null)
+    localStorage.removeItem('@application:token')
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('@application:token')
+
+    if (token) {
+      api.defaults.headers.common.authorization = `Bearer ${token}`
+
+      api.get<User>('profile').then(response => {
+        setUser(response.data)
+      })
+    }
+  }, [])
+
   useEffect(() => {
     var url = window.location.href;
     const githubCode = url.includes('code=') ? url.split('?code=')[1] : null
@@ -59,7 +77,7 @@ export function AuthProvider(props: AuthProvider) {
   }, [])
   
   return (
-    <AuthContext.Provider value={{ signInUrl, user }}> 
+    <AuthContext.Provider value={{ signInUrl, user, signOut }}> 
       {props.children}
     </AuthContext.Provider>
   )

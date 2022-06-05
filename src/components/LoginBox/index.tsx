@@ -11,11 +11,11 @@ export function LoginBox() {
   console.log(user)
 
   return (
-    <div className="loginBox">
-      <img src={girlBanner} alt="Girl" />
+    <div className='loginBox'>
+      <img src={girlBanner} alt='Girl' />
       <strong>Envie e compartilhe sua mensagem</strong>
       <a href={signInUrl}>
-        <VscGithubInverted size="24" />
+        <VscGithubInverted size='24' />
         Entrar com Github
       </a>
       <div></div>

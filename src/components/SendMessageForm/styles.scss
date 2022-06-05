@@ -1,0 +1,99 @@
+.sendMessageContainer {
+  position: relative;
+  background: url('../../assets/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .sendMessageBox {
+    width: 453px;
+    height: 578px;
+    background-color: var(--black-3);
+    position: absolute;
+
+    top: calc((100% - 622px) / 2);
+    right: 50%;
+
+    .logoutIcon {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      cursor: pointer;
+    }
+
+    .profile {
+      margin-top: 48px;
+      min-height: 182px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .profileIcon {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        background: linear-gradient(100deg, var(--pink) 0%, var(--yellow) 100%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 105px;
+          height: 105px;
+          border-radius: 50%;
+          border: 7px solid var(--black-3);
+        }
+      }
+
+      .profileName {
+        margin-top: 16px;
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      .profileUserName {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+
+    .messageBox {
+      width: 405px;
+      height: 278px;
+      margin: 48px auto 0;
+      background-color: #202024;
+
+      .messageBoxHeader {
+        background: #29292E;
+        height: 64px;
+        padding: 14px;
+
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: bold;
+      }
+
+      .messageBoxBody {
+        width: 100%;
+        height: 100%;
+        padding: 14px;
+
+        textarea {
+          background: none;
+          outline: none;
+          border: 0;
+          
+        }
+      }
+    }
+  }
+}
